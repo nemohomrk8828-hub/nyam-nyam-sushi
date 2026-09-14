@@ -935,7 +935,18 @@ closeOrder();
 }
 
 updateCart();
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://lpnjtdhlmqrxvuljjbvv.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable__QJGAa2hVKR5JzKgyqFBDw_0wdqTw_-
+";
+
+const supabaseClient = window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
+</script>
 </script>
 
 </body>
