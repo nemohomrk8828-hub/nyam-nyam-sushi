@@ -883,57 +883,52 @@ document.getElementById("orderModal").style.display = "none";
 }
 
 
-function submitOrder(event){
-
+async function submitOrder(event) {
 event.preventDefault();
 
-const name =
-document.getElementById("name").value;
+if (cart.length === 0) {
+alert("Krepšelis tuščias.");
+return;
+}
 
-const phone =
-document.getElementById("phone").value;
-
-const address =
-document.getElementById("address").value;
-
-const delivery =
-document.getElementById("delivery").value;
-
-const comment =
-document.getElementById("comment").value;
+const name = document.getElementById("name").value.trim();
+const phone = document.getElementById("phone").value.trim();
+const address = document.getElementById("address").value.trim();
+const delivery = document.getElementById("delivery").value;
+const comment = document.getElementById("comment").value.trim();
 
 const total = cart.reduce(
-(sum,item) => sum + item.price * item.quantity,
+(sum, item) => sum + item.price * item.quantity,
 0
 );
 
-alert(
-"Ačiū, " + name +
-"! Užsakymas priimtas.\n\n" +
-"Suma: " + total.toFixed(2) +
-" €\n\n" +
-"Kol kas tai demonstracinė užsakymo forma. " +
-"Kitame žingsnyje prijungsime tikrą duomenų bazę."
-);
-
-console.log({
-name,
-phone,
-address,
-delivery,
-comment,
-items:cart,
-total
+const { error } = await supabaseClient
+.from("orders")
+.insert({
+customer_name: name,
+phone: phone,
+address: address,
+delivery_method: delivery,
+comment: comment,
+items: cart,
+total: Number(total.toFixed(2)),
+status: "new"
 });
 
-cart = [];
-
-updateCart();
-
-closeOrder();
-
+if (error) {
+console.error(error);
+alert("Nepavyko pateikti užsakymo. Pabandykite dar kartą.");
+return;
 }
 
+alert(`Ačiū, ${name}! Užsakymas sėkmingai priimtas.`);
+
+cart = [];
+updateCart();
+closeOrder();
+
+document.querySelector("#orderModal form").reset();
+}
 updateCart();
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
