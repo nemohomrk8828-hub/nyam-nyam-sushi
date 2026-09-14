@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="lt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nyam-Nyam-Sushi</title>
+
+<title>Niam Niam Sushi – suši Vilniuje</title>
 
 <style>
 * {
@@ -12,52 +13,85 @@ margin: 0;
 padding: 0;
 }
 
+html {
+scroll-behavior: smooth;
+}
+
 body {
 font-family: Arial, sans-serif;
-background: #fff8f1;
+background: #fffaf5;
 color: #171717;
 }
 
 header {
-background: #111;
+position: sticky;
+top: 0;
+z-index: 1000;
+background: rgba(17,17,17,.96);
 color: white;
-padding: 20px 6%;
+padding: 18px 6%;
 display: flex;
-justify-content: space-between;
 align-items: center;
+justify-content: space-between;
 }
 
 .logo {
-font-size: 24px;
-font-weight: bold;
+font-size: 25px;
+font-weight: 800;
 }
 
 .logo span {
 color: #e63946;
 }
 
+nav {
+display: flex;
+gap: 25px;
+}
+
 nav a {
 color: white;
 text-decoration: none;
-margin-left: 20px;
+font-size: 15px;
+}
+
+.cart-button {
+border: 0;
+background: #e63946;
+color: white;
+padding: 11px 17px;
+border-radius: 10px;
+cursor: pointer;
+font-weight: bold;
 }
 
 .hero {
-min-height: 500px;
-padding: 80px 8%;
+min-height: 560px;
 display: flex;
 align-items: center;
+padding: 80px 8%;
 background:
-linear-gradient(90deg, #fff8f1 50%, #f4c7b8);
+radial-gradient(circle at 80% 30%, #ffd6cc, transparent 35%),
+linear-gradient(135deg, #fffaf5, #ffe8df);
 }
 
 .hero-content {
-max-width: 650px;
+max-width: 700px;
+}
+
+.badge {
+display: inline-block;
+background: #171717;
+color: white;
+padding: 9px 15px;
+border-radius: 30px;
+margin-bottom: 20px;
+font-size: 14px;
 }
 
 .hero h1 {
-font-size: 64px;
-line-height: 1;
+font-size: clamp(45px, 7vw, 78px);
+line-height: .95;
 margin-bottom: 25px;
 }
 
@@ -66,9 +100,10 @@ color: #e63946;
 }
 
 .hero p {
-font-size: 19px;
 color: #666;
+font-size: 19px;
 line-height: 1.6;
+max-width: 600px;
 margin-bottom: 30px;
 }
 
@@ -77,58 +112,189 @@ display: inline-block;
 background: #e63946;
 color: white;
 padding: 15px 25px;
-border-radius: 10px;
+border-radius: 12px;
 text-decoration: none;
-font-weight: bold;
-border: none;
+border: 0;
 cursor: pointer;
+font-weight: bold;
 }
 
 .section {
-padding: 70px 8%;
+padding: 75px 8%;
 }
 
-.section h2 {
-font-size: 40px;
+.section-title {
+font-size: 42px;
+margin-bottom: 12px;
+}
+
+.section-subtitle {
+color: #777;
+margin-bottom: 35px;
+}
+
+.categories {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
 margin-bottom: 30px;
+}
+
+.category {
+border: 1px solid #ddd;
+background: white;
+padding: 11px 18px;
+border-radius: 30px;
+cursor: pointer;
+}
+
+.category.active,
+.category:hover {
+background: #e63946;
+color: white;
+border-color: #e63946;
 }
 
 .menu {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
-gap: 20px;
+gap: 22px;
 }
 
 .card {
 background: white;
-border-radius: 18px;
-padding: 20px;
-box-shadow: 0 5px 20px rgba(0,0,0,.08);
+border-radius: 20px;
+padding: 15px;
+box-shadow: 0 8px 30px rgba(0,0,0,.07);
+transition: .2s;
+}
+
+.card:hover {
+transform: translateY(-5px);
 }
 
 .food {
-height: 180px;
-background: #ffe4dc;
-border-radius: 14px;
+height: 190px;
+border-radius: 15px;
+background: linear-gradient(135deg, #ffe0d7, #fff0eb);
 display: flex;
-align-items: center;
 justify-content: center;
-font-size: 90px;
-margin-bottom: 15px;
+align-items: center;
+font-size: 85px;
+margin-bottom: 16px;
 }
 
 .card h3 {
-margin-bottom: 8px;
+font-size: 21px;
+margin-bottom: 7px;
 }
 
 .card p {
 color: #777;
-margin-bottom: 15px;
+line-height: 1.4;
+min-height: 42px;
+}
+
+.card-bottom {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 18px;
 }
 
 .price {
-font-size: 20px;
+font-size: 21px;
 font-weight: bold;
+}
+
+.add {
+background: #171717;
+color: white;
+border: 0;
+padding: 10px 15px;
+border-radius: 9px;
+cursor: pointer;
+}
+
+.info-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.info {
+background: white;
+padding: 25px;
+border-radius: 18px;
+box-shadow: 0 5px 25px rgba(0,0,0,.06);
+}
+
+.info-icon {
+font-size: 35px;
+margin-bottom: 15px;
+}
+
+.info h3 {
+margin-bottom: 8px;
+}
+
+.info p {
+color: #777;
+line-height: 1.5;
+}
+
+.review-box {
+background: #171717;
+color: white;
+border-radius: 25px;
+padding: 40px;
+text-align: center;
+}
+
+.rating {
+color: #ffd166;
+font-size: 28px;
+margin-bottom: 10px;
+}
+
+.review-number {
+font-size: 48px;
+font-weight: bold;
+}
+
+.contact {
+background: #ffe7df;
+}
+
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 30px;
+}
+
+.contact-card {
+background: white;
+padding: 30px;
+border-radius: 20px;
+}
+
+.contact-card p {
+margin: 15px 0;
+color: #666;
+}
+
+.socials {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+}
+
+.social {
+padding: 13px 18px;
+border-radius: 10px;
+background: #171717;
+color: white;
+text-decoration: none;
 }
 
 footer {
@@ -138,17 +304,131 @@ padding: 30px 8%;
 text-align: center;
 }
 
-@media(max-width: 700px) {
+.modal {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,.6);
+z-index: 2000;
+align-items: center;
+justify-content: center;
+padding: 20px;
+}
+
+.modal.active {
+display: flex;
+}
+
+.modal-content {
+background: white;
+width: 100%;
+max-width: 520px;
+max-height: 90vh;
+overflow-y: auto;
+border-radius: 20px;
+padding: 25px;
+}
+
+.modal-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.close {
+background: #eee;
+border: 0;
+border-radius: 50%;
+width: 35px;
+height: 35px;
+cursor: pointer;
+font-size: 20px;
+}
+
+.cart-item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-bottom: 1px solid #eee;
+padding: 14px 0;
+gap: 10px;
+}
+
+.quantity {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.quantity button {
+width: 28px;
+height: 28px;
+border: 0;
+background: #eee;
+border-radius: 6px;
+cursor: pointer;
+}
+
+.total {
+display: flex;
+justify-content: space-between;
+font-size: 22px;
+font-weight: bold;
+margin: 25px 0;
+}
+
+form {
+display: grid;
+gap: 12px;
+}
+
+input,
+textarea,
+select {
+width: 100%;
+padding: 13px;
+border: 1px solid #ddd;
+border-radius: 9px;
+font-size: 15px;
+}
+
+textarea {
+min-height: 90px;
+}
+
+.empty {
+text-align: center;
+color: #777;
+padding: 30px 0;
+}
+
+@media(max-width: 800px) {
 nav {
 display: none;
 }
 
-.hero h1 {
-font-size: 45px;
+.menu {
+grid-template-columns: 1fr 1fr;
 }
 
+.info-grid,
+.contact-grid {
+grid-template-columns: 1fr;
+}
+}
+
+@media(max-width: 550px) {
 .menu {
 grid-template-columns: 1fr;
+}
+
+.hero {
+min-height: 500px;
+}
+
+.section {
+padding: 55px 5%;
 }
 }
 </style>
@@ -157,33 +437,56 @@ grid-template-columns: 1fr;
 <body>
 
 <header>
-<div class="logo">🍣 Nyam-Nyam <span>Sushi</span></div>
+<div class="logo">🍣 Niam Niam <span>Sushi</span></div>
 
 <nav>
 <a href="#menu">Meniu</a>
 <a href="#about">Apie mus</a>
+<a href="#reviews">Atsiliepimai</a>
 <a href="#contacts">Kontaktai</a>
 </nav>
+
+<button class="cart-button" onclick="openCart()">
+🛒 Krepšelis (<span id="cartCount">0</span>)
+</button>
 </header>
 
 <section class="hero">
 <div class="hero-content">
+
+<div class="badge">🍣 Švieži sušiai Vilniuje</div>
+
 <h1>
-Sushiai, kuriuos
-<span>noresi pakartoti.</span>
+Skonis, kurio
+<span>norisi dar kartą.</span>
 </h1>
 
 <p>
-Švieži sušių suktinukai, rinkiniai ir japoniški patiekalai.
-Užsisakykite mėgstamus sušius greitai ir patogiai.
+Švieži sušiai, gardūs suktinukai ir dideli rinkiniai.
+Užsisakykite greitai, patogiai ir be nereikalingų skambučių.
 </p>
 
-<a href="#menu" class="button">Peržiūrėti meniu</a>
+<a href="#menu" class="button">
+Peržiūrėti meniu
+</a>
+
 </div>
 </section>
 
 <section class="section" id="menu">
-<h2>Mūsų meniu</h2>
+
+<h2 class="section-title">Meniu</h2>
+
+<p class="section-subtitle">
+Išsirinkite mėgstamus sušius ir pridėkite juos į krepšelį.
+</p>
+
+<div class="categories">
+<button class="category active">Visi</button>
+<button class="category">Suktinukai</button>
+<button class="category">Rinkiniai</button>
+<button class="category">Sušiai</button>
+</div>
 
 <div class="menu">
 
@@ -191,50 +494,466 @@ Užsisakykite mėgstamus sušius greitai ir patogiai.
 <div class="food">🍣</div>
 <h3>Filadelfija</h3>
 <p>Lašiša, kreminis sūris, agurkas</p>
-<span class="price">€8.90</span>
+
+<div class="card-bottom">
+<span class="price">8,90 €</span>
+<button class="add" onclick="addToCart('Filadelfija', 8.90)">
++ Į krepšelį
+</button>
+</div>
 </div>
 
 <div class="card">
 <div class="food">🍣</div>
 <h3>Kalifornija</h3>
-<p>Krabas, avokadas, agurkas, tobiko</p>
-<span class="price">€7.90</span>
+<p>Krabų mėsa, avokadas, agurkas, tobiko</p>
+
+<div class="card-bottom">
+<span class="price">7,90 €</span>
+<button class="add" onclick="addToCart('Kalifornija', 7.90)">
++ Į krepšelį
+</button>
+</div>
 </div>
 
 <div class="card">
 <div class="food">🍱</div>
-<h3>Nyam rinkinys</h3>
-<p>Didelis sušių rinkinys grupei</p>
-<span class="price">€24.90</span>
+<h3>Niam Niam rinkinys</h3>
+<p>Didelis suktinukų rinkinys kompanijai</p>
+
+<div class="card-bottom">
+<span class="price">24,90 €</span>
+<button class="add" onclick="addToCart('Niam Niam rinkinys', 24.90)">
++ Į krepšelį
+</button>
+</div>
+</div>
+
+<div class="card">
+<div class="food">🍤</div>
+<h3>Tempura</h3>
+<p>Traškūs suktinukai su krevetėmis</p>
+
+<div class="card-bottom">
+<span class="price">9,50 €</span>
+<button class="add" onclick="addToCart('Tempura', 9.50)">
++ Į krepšelį
+</button>
+</div>
+</div>
+
+<div class="card">
+<div class="food">🥑</div>
+<h3>Veganiškas suktinukas</h3>
+<p>Avokadas, agurkas ir šviežios daržovės</p>
+
+<div class="card-bottom">
+<span class="price">7,50 €</span>
+<button class="add" onclick="addToCart('Veganiškas suktinukas', 7.50)">
++ Į krepšelį
+</button>
+</div>
+</div>
+
+<div class="card">
+<div class="food">🍣</div>
+<h3>Didelis rinkinys</h3>
+<p>Puikus pasirinkimas didelei kompanijai</p>
+
+<div class="card-bottom">
+<span class="price">29,90 €</span>
+<button class="add" onclick="addToCart('Didelis rinkinys', 29.90)">
++ Į krepšelį
+</button>
+</div>
 </div>
 
 </div>
 </section>
 
 <section class="section" id="about">
-<h2>Kodėl Nyam-Nyam?</h2>
 
-<p>
-Šviežius sušius ruošiame gavę užsakymą,
-kruopščiai supakuojame ir pristatome laiku.
-</p>
+<h2 class="section-title">Kodėl Niam Niam?</h2>
+
+<div class="info-grid">
+
+<div class="info">
+<div class="info-icon">🐟</div>
+<h3>Švieži produktai</h3>
+<p>Maistą ruošiame prieš pat užsakymą.</p>
+</div>
+
+<div class="info">
+<div class="info-icon">⚡</div>
+<h3>Greitas pristatymas</h3>
+<p>Stengiamės pristatyti užsakymą kuo greičiau.</p>
+</div>
+
+<div class="info">
+<div class="info-icon">❤️</div>
+<h3>Su meile</h3>
+<p>Kiekvieną užsakymą ruošiame kruopščiai ir atsakingai.</p>
+</div>
+
+</div>
 </section>
 
-<section class="section" id="contacts">
-<h2>Kontaktai</h2>
+<section class="section" id="reviews">
 
-<p>📍 Vilnius, Lithuania</p>
+<div class="review-box">
+
+<div class="rating">★★★★★</div>
+
+<div class="review-number" id="reviewCount">630</div>
+
+<p>
+patenkintų klientų paliko savo atsiliepimus
+</p>
+
 <br>
-<p>📞 +37066863366</p>
-<br>
-<a class="button" href="tel:+37066863366">
-Paskambinti
+
+<button class="button" onclick="openReview()">
+Palikti atsiliepimą
+</button>
+
+</div>
+
+</section>
+
+<section class="section contact" id="contacts">
+
+<h2 class="section-title">Kontaktai</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3>📍 Niam Niam Sushi</h3>
+
+<p>Vilnius, Lietuva</p>
+
+<p>📞 +370 600 00000</p>
+
+<a class="button" href="tel:+37060000000">
+Skambinti
 </a>
+
+</div>
+
+<div class="contact-card">
+
+<h3>Susisiekite su mumis</h3>
+
+<p>
+Turite klausimų? Parašykite mums.
+</p>
+
+<div class="socials">
+
+<a class="social" href="https://wa.me/37060000000">
+WhatsApp
+</a>
+
+<a class="social" href="#">
+Telegram
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <footer>
-🍣 Nyam-Nyam Sushi © 2026
+🍣 Niam Niam Sushi © 2026
 </footer>
+
+<div class="modal" id="cartModal">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h2>🛒 Jūsų krepšelis</h2>
+
+<button class="close" onclick="closeCart()">×</button>
+
+</div>
+
+<div id="cartItems"></div>
+
+<div class="total">
+<span>Viso:</span>
+<span id="cartTotal">0,00 €</span>
+</div>
+
+<button class="button" onclick="openOrder()">
+Užsakyti
+</button>
+
+</div>
+
+</div>
+
+<div class="modal" id="orderModal">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h2>📦 Užsakymas</h2>
+
+<button class="close" onclick="closeOrder()">×</button>
+
+</div>
+
+<form onsubmit="submitOrder(event)">
+
+<input
+type="text"
+id="customerName"
+placeholder="Jūsų vardas"
+required
+>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Telefono numeris"
+required
+>
+
+<input
+type="text"
+id="customerAddress"
+placeholder="Pristatymo adresas"
+required
+>
+
+<select id="delivery">
+<option>Pristatymas</option>
+<option>Atsiėmimas vietoje</option>
+</select>
+
+<textarea
+id="customerComment"
+placeholder="Komentaras užsakymui"
+></textarea>
+
+<button class="button" type="submit">
+Pateikti užsakymą
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="modal" id="reviewModal">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h2>⭐ Atsiliepimas</h2>
+
+<button class="close" onclick="closeReview()">×</button>
+
+</div>
+
+<form onsubmit="submitReview(event)">
+
+<input
+type="text"
+id="reviewName"
+placeholder="Jūsų vardas"
+required
+>
+
+<select id="reviewRating">
+<option value="5">★★★★★</option>
+<option value="4">★★★★☆</option>
+<option value="3">★★★☆☆</option>
+<option value="2">★★☆☆☆</option>
+<option value="1">★☆☆☆☆</option>
+</select>
+
+<textarea
+id="reviewText"
+placeholder="Parašykite savo atsiliepimą..."
+required
+></textarea>
+
+<button class="button" type="submit">
+Pateikti atsiliepimą
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+const existing = cart.find(item => item.name === name);
+
+if (existing) {
+existing.quantity++;
+} else {
+cart.push({
+name: name,
+price: price,
+quantity: 1
+});
+}
+
+updateCart();
+
+alert(name + " pridėta į krepšelį!");
+}
+
+function updateCart() {
+
+const cartCount = cart.reduce(
+(sum, item) => sum + item.quantity,
+0
+);
+
+document.getElementById("cartCount").textContent = cartCount;
+
+const container = document.getElementById("cartItems");
+
+if (cart.length === 0) {
+
+container.innerHTML =
+'<div class="empty">Krepšelis tuščias.</div>';
+
+} else {
+
+container.innerHTML = cart.map((item, index) => `
+
+<div class="cart-item">
+
+<div>
+<strong>${item.name}</strong>
+<br>
+${item.price.toFixed(2).replace(".", ",")} €
+</div>
+
+<div class="quantity">
+
+<button onclick="changeQuantity(${index}, -1)">
+−
+</button>
+
+<span>${item.quantity}</span>
+
+<button onclick="changeQuantity(${index}, 1)">
++
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+}
+
+const total = cart.reduce(
+(sum, item) => sum + item.price * item.quantity,
+0
+);
+
+document.getElementById("cartTotal").textContent =
+total.toFixed(2).replace(".", ",") + " €";
+}
+
+function changeQuantity(index, change) {
+
+cart[index].quantity += change;
+
+if (cart[index].quantity <= 0) {
+cart.splice(index, 1);
+}
+
+updateCart();
+}
+
+function openCart() {
+document.getElementById("cartModal").classList.add("active");
+}
+
+function closeCart() {
+document.getElementById("cartModal").classList.remove("active");
+}
+
+function openOrder() {
+
+if (cart.length === 0) {
+alert("Jūsų krepšelis tuščias.");
+return;
+}
+
+closeCart();
+
+document.getElementById("orderModal").classList.add("active");
+}
+
+function closeOrder() {
+document.getElementById("orderModal").classList.remove("active");
+}
+
+function submitOrder(event) {
+
+event.preventDefault();
+
+alert(
+"Ačiū! Jūsų užsakymas priimtas. " +
+"Su jumis netrukus susisieksime."
+);
+
+cart = [];
+
+updateCart();
+
+closeOrder();
+}
+
+function openReview() {
+document.getElementById("reviewModal").classList.add("active");
+}
+
+function closeReview() {
+document.getElementById("reviewModal").classList.remove("active");
+}
+
+function submitReview(event) {
+
+event.preventDefault();
+
+let count =
+Number(document.getElementById("reviewCount").textContent);
+
+count++;
+
+document.getElementById("reviewCount").textContent = count;
+
+alert("Ačiū už jūsų atsiliepimą!");
+
+closeReview();
+}
+
+updateCart();
+
+</script>
 
 </body>
 </html>
