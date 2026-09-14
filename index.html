@@ -4,431 +4,418 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Niam Niam Sushi – suši Vilniuje</title>
+<title>Niam Niam Sushi</title>
 
 <style>
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-html {
-scroll-behavior: smooth;
+html{
+scroll-behavior:smooth;
 }
 
-body {
-font-family: Arial, sans-serif;
-background: #fffaf5;
-color: #171717;
-}
-
-header {
-position: sticky;
-top: 0;
-z-index: 1000;
-background: rgba(17,17,17,.96);
-color: white;
-padding: 18px 6%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-
-.logo {
-font-size: 25px;
-font-weight: 800;
-}
-
-.logo span {
-color: #e63946;
-}
-
-nav {
-display: flex;
-gap: 25px;
-}
-
-nav a {
-color: white;
-text-decoration: none;
-font-size: 15px;
-}
-
-.cart-button {
-border: 0;
-background: #e63946;
-color: white;
-padding: 11px 17px;
-border-radius: 10px;
-cursor: pointer;
-font-weight: bold;
-}
-
-.hero {
-min-height: 560px;
-display: flex;
-align-items: center;
-padding: 80px 8%;
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:#fff;
 background:
-radial-gradient(circle at 80% 30%, #ffd6cc, transparent 35%),
-linear-gradient(135deg, #fffaf5, #ffe8df);
+radial-gradient(circle at 20% 20%, rgba(150,0,0,.35), transparent 30%),
+radial-gradient(circle at 80% 70%, rgba(180,20,20,.25), transparent 30%),
+linear-gradient(135deg,#090909,#1a0505,#080808);
+min-height:100vh;
 }
 
-.hero-content {
-max-width: 700px;
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.08;
+background-image:
+linear-gradient(45deg,#fff 1px,transparent 1px),
+linear-gradient(-45deg,#fff 1px,transparent 1px);
+background-size:45px 45px;
 }
 
-.badge {
-display: inline-block;
-background: #171717;
-color: white;
-padding: 9px 15px;
-border-radius: 30px;
-margin-bottom: 20px;
-font-size: 14px;
+header{
+position:sticky;
+top:0;
+z-index:100;
+background:rgba(8,8,8,.92);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.1);
+padding:18px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.hero h1 {
-font-size: clamp(45px, 7vw, 78px);
-line-height: .95;
-margin-bottom: 25px;
+.logo{
+font-size:25px;
+font-weight:800;
+color:#fff;
 }
 
-.hero h1 span {
-color: #e63946;
+.logo span{
+color:#e52b2b;
 }
 
-.hero p {
-color: #666;
-font-size: 19px;
-line-height: 1.6;
-max-width: 600px;
-margin-bottom: 30px;
+nav{
+display:flex;
+gap:25px;
 }
 
-.button {
-display: inline-block;
-background: #e63946;
-color: white;
-padding: 15px 25px;
-border-radius: 12px;
-text-decoration: none;
-border: 0;
-cursor: pointer;
-font-weight: bold;
+nav a{
+color:#fff;
+text-decoration:none;
+font-size:15px;
 }
 
-.section {
-padding: 75px 8%;
+nav a:hover{
+color:#ff3838;
 }
 
-.section-title {
-font-size: 42px;
-margin-bottom: 12px;
+.cart-button{
+border:0;
+background:#e52323;
+color:white;
+padding:11px 17px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
 }
 
-.section-subtitle {
-color: #777;
-margin-bottom: 35px;
+.hero{
+min-height:600px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:80px 20px;
+position:relative;
+overflow:hidden;
 }
 
-.categories {
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
-margin-bottom: 30px;
+.hero:before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+border-radius:50%;
+background:rgba(180,0,0,.18);
+filter:blur(80px);
 }
 
-.category {
-border: 1px solid #ddd;
-background: white;
-padding: 11px 18px;
-border-radius: 30px;
-cursor: pointer;
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
 }
 
-.category.active,
-.category:hover {
-background: #e63946;
-color: white;
-border-color: #e63946;
+.hero h1{
+font-size:64px;
+margin-bottom:20px;
 }
 
-.menu {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 22px;
+.hero h1 span{
+color:#ed2929;
 }
 
-.card {
-background: white;
-border-radius: 20px;
-padding: 15px;
-box-shadow: 0 8px 30px rgba(0,0,0,.07);
-transition: .2s;
+.hero p{
+font-size:20px;
+color:#ddd;
+margin-bottom:30px;
 }
 
-.card:hover {
-transform: translateY(-5px);
+.hero-button{
+display:inline-block;
+background:#e52323;
+color:white;
+text-decoration:none;
+padding:15px 25px;
+border-radius:12px;
+font-weight:bold;
+box-shadow:0 10px 30px rgba(229,35,35,.25);
 }
 
-.food {
-height: 190px;
-border-radius: 15px;
-background: linear-gradient(135deg, #ffe0d7, #fff0eb);
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 85px;
-margin-bottom: 16px;
+.hero-button:hover{
+background:#ff3434;
 }
 
-.card h3 {
-font-size: 21px;
-margin-bottom: 7px;
+section{
+padding:80px 6%;
+position:relative;
 }
 
-.card p {
-color: #777;
-line-height: 1.4;
-min-height: 42px;
+.section-title{
+text-align:center;
+margin-bottom:45px;
 }
 
-.card-bottom {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-top: 18px;
+.section-title h2{
+font-size:40px;
+margin-bottom:10px;
 }
 
-.price {
-font-size: 21px;
-font-weight: bold;
+.section-title p{
+color:#aaa;
 }
 
-.add {
-background: #171717;
-color: white;
-border: 0;
-padding: 10px 15px;
-border-radius: 9px;
-cursor: pointer;
+.menu-grid{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.info-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 20px;
+.card{
+background:rgba(255,255,255,.07);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+overflow:hidden;
+backdrop-filter:blur(10px);
+transition:.25s;
 }
 
-.info {
-background: white;
-padding: 25px;
-border-radius: 18px;
-box-shadow: 0 5px 25px rgba(0,0,0,.06);
+.card:hover{
+transform:translateY(-6px);
+border-color:rgba(229,35,35,.5);
 }
 
-.info-icon {
-font-size: 35px;
-margin-bottom: 15px;
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
 }
 
-.info h3 {
-margin-bottom: 8px;
+.card-content{
+padding:20px;
 }
 
-.info p {
-color: #777;
-line-height: 1.5;
+.card h3{
+font-size:21px;
+margin-bottom:8px;
 }
 
-.review-box {
-background: #171717;
-color: white;
-border-radius: 25px;
-padding: 40px;
-text-align: center;
+.card p{
+color:#aaa;
+min-height:40px;
+font-size:14px;
 }
 
-.rating {
-color: #ffd166;
-font-size: 28px;
-margin-bottom: 10px;
+.price{
+color:#ff3434;
+font-size:21px;
+font-weight:bold;
+margin:15px 0;
 }
 
-.review-number {
-font-size: 48px;
-font-weight: bold;
+.add{
+width:100%;
+border:0;
+background:#e52323;
+color:white;
+padding:13px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
 }
 
-.contact {
-background: #ffe7df;
+.add:hover{
+background:#ff3434;
 }
 
-.contact-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 30px;
+.about{
+max-width:900px;
+margin:auto;
+text-align:center;
 }
 
-.contact-card {
-background: white;
-padding: 30px;
-border-radius: 20px;
+.about p{
+color:#ccc;
+line-height:1.8;
+font-size:17px;
 }
 
-.contact-card p {
-margin: 15px 0;
-color: #666;
+.contacts{
+max-width:800px;
+margin:auto;
+text-align:center;
 }
 
-.socials {
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
+.contact-buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:25px;
 }
 
-.social {
-padding: 13px 18px;
-border-radius: 10px;
-background: #171717;
-color: white;
-text-decoration: none;
+.contact-buttons a{
+text-decoration:none;
+color:white;
+background:#222;
+border:1px solid #444;
+padding:13px 20px;
+border-radius:10px;
 }
 
-footer {
-background: #111;
-color: white;
-padding: 30px 8%;
-text-align: center;
+.contact-buttons a:hover{
+border-color:#e52323;
 }
 
-.modal {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,.6);
-z-index: 2000;
-align-items: center;
-justify-content: center;
-padding: 20px;
+footer{
+text-align:center;
+padding:35px;
+color:#777;
+border-top:1px solid rgba(255,255,255,.08);
 }
 
-.modal.active {
-display: flex;
+/* MODALS */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+z-index:500;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(7px);
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
-.modal-content {
-background: white;
-width: 100%;
-max-width: 520px;
-max-height: 90vh;
-overflow-y: auto;
-border-radius: 20px;
-padding: 25px;
+.modal-box{
+width:100%;
+max-width:520px;
+max-height:90vh;
+overflow:auto;
+background:#151515;
+border:1px solid #333;
+border-radius:20px;
+padding:25px;
 }
 
-.modal-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 20px;
+.modal-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
 }
 
-.close {
-background: #eee;
-border: 0;
-border-radius: 50%;
-width: 35px;
-height: 35px;
-cursor: pointer;
-font-size: 20px;
+.close{
+border:0;
+background:none;
+color:white;
+font-size:28px;
+cursor:pointer;
 }
 
-.cart-item {
-display: flex;
-align-items: center;
-justify-content: space-between;
-border-bottom: 1px solid #eee;
-padding: 14px 0;
-gap: 10px;
+.cart-item{
+display:flex;
+justify-content:space-between;
+gap:15px;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid #333;
 }
 
-.quantity {
-display: flex;
-align-items: center;
-gap: 8px;
+.quantity{
+display:flex;
+align-items:center;
+gap:8px;
 }
 
-.quantity button {
-width: 28px;
-height: 28px;
-border: 0;
-background: #eee;
-border-radius: 6px;
-cursor: pointer;
+.quantity button{
+width:28px;
+height:28px;
+border:0;
+border-radius:6px;
+background:#333;
+color:white;
+cursor:pointer;
 }
 
-.total {
-display: flex;
-justify-content: space-between;
-font-size: 22px;
-font-weight: bold;
-margin: 25px 0;
+.total{
+display:flex;
+justify-content:space-between;
+font-size:22px;
+font-weight:bold;
+margin:20px 0;
 }
 
-form {
-display: grid;
-gap: 12px;
+.primary{
+width:100%;
+border:0;
+background:#e52323;
+color:white;
+padding:14px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
 }
 
-input,
-textarea,
-select {
-width: 100%;
-padding: 13px;
-border: 1px solid #ddd;
-border-radius: 9px;
-font-size: 15px;
+input,select,textarea{
+width:100%;
+padding:13px;
+margin-bottom:13px;
+background:#222;
+color:white;
+border:1px solid #444;
+border-radius:9px;
+outline:none;
 }
 
-textarea {
-min-height: 90px;
+textarea{
+min-height:90px;
+resize:vertical;
 }
 
-.empty {
-text-align: center;
-color: #777;
-padding: 30px 0;
+label{
+display:block;
+margin-bottom:6px;
+color:#ccc;
+font-size:14px;
 }
 
-@media(max-width: 800px) {
-nav {
-display: none;
+.empty{
+text-align:center;
+color:#999;
+padding:25px;
 }
 
-.menu {
-grid-template-columns: 1fr 1fr;
+@media(max-width:700px){
+
+header{
+padding:15px;
 }
 
-.info-grid,
-.contact-grid {
-grid-template-columns: 1fr;
-}
+nav{
+display:none;
 }
 
-@media(max-width: 550px) {
-.menu {
-grid-template-columns: 1fr;
+.hero{
+min-height:500px;
 }
 
-.hero {
-min-height: 500px;
+.hero h1{
+font-size:43px;
 }
 
-.section {
-padding: 55px 5%;
+.hero p{
+font-size:17px;
+}
+
+section{
+padding:60px 15px;
+}
+
+.section-title h2{
+font-size:32px;
 }
 }
 </style>
@@ -437,246 +424,248 @@ padding: 55px 5%;
 <body>
 
 <header>
-<div class="logo">🍣 Niam Niam <span>Sushi</span></div>
+
+<div class="logo">
+Niam <span>Niam</span> Sushi
+</div>
 
 <nav>
 <a href="#menu">Meniu</a>
 <a href="#about">Apie mus</a>
-<a href="#reviews">Atsiliepimai</a>
 <a href="#contacts">Kontaktai</a>
 </nav>
 
 <button class="cart-button" onclick="openCart()">
-🛒 Krepšelis (<span id="cartCount">0</span>)
+🛒 Krepšelis <span id="cartCount">0</span>
 </button>
+
 </header>
 
+
 <section class="hero">
+
 <div class="hero-content">
 
-<div class="badge">🍣 Švieži sušiai Vilniuje</div>
-
 <h1>
-Skonis, kurio
-<span>norisi dar kartą.</span>
+Niam <span>Niam</span> Sushi
 </h1>
 
 <p>
-Švieži sušiai, gardūs suktinukai ir dideli rinkiniai.
-Užsisakykite greitai, patogiai ir be nereikalingų skambučių.
+Šviežias sushi Vilniuje 🍣<br>
+Užsisakyk mėgstamus suktinukus greitai ir patogiai.
 </p>
 
-<a href="#menu" class="button">
+<a class="hero-button" href="#menu">
 Peržiūrėti meniu
 </a>
 
 </div>
+
 </section>
 
-<section class="section" id="menu">
 
-<h2 class="section-title">Meniu</h2>
+<section id="menu">
 
-<p class="section-subtitle">
-Išsirinkite mėgstamus sušius ir pridėkite juos į krepšelį.
-</p>
-
-<div class="categories">
-<button class="category active">Visi</button>
-<button class="category">Suktinukai</button>
-<button class="category">Rinkiniai</button>
-<button class="category">Sušiai</button>
+<div class="section-title">
+<h2>Mūsų meniu 🍣</h2>
+<p>Pasirink savo mėgstamiausią patiekalą</p>
 </div>
 
-<div class="menu">
+<div class="menu-grid">
 
 <div class="card">
-<div class="food">🍣</div>
+
+<img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
 <h3>Filadelfija</h3>
-<p>Lašiša, kreminis sūris, agurkas</p>
 
-<div class="card-bottom">
-<span class="price">8,90 €</span>
-<button class="add" onclick="addToCart('Filadelfija', 8.90)">
-+ Į krepšelį
+<p>Lašiša, kreminis sūris, agurkas ir ryžiai.</p>
+
+<div class="price">8.90 €</div>
+
+<button class="add" onclick="addToCart('Filadelfija',8.90)">
+Į krepšelį
 </button>
+
 </div>
+
 </div>
+
 
 <div class="card">
-<div class="food">🍣</div>
+
+<img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
 <h3>Kalifornija</h3>
-<p>Krabų mėsa, avokadas, agurkas, tobiko</p>
 
-<div class="card-bottom">
-<span class="price">7,90 €</span>
-<button class="add" onclick="addToCart('Kalifornija', 7.90)">
-+ Į krepšelį
+<p>Krabų mėsa, avokadas, agurkas ir sezamai.</p>
+
+<div class="price">7.90 €</div>
+
+<button class="add" onclick="addToCart('Kalifornija',7.90)">
+Į krepšelį
 </button>
+
 </div>
+
 </div>
+
 
 <div class="card">
-<div class="food">🍱</div>
+
+<img src="https://images.unsplash.com/photo-1563612116625-3012372fccce?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
 <h3>Niam Niam rinkinys</h3>
-<p>Didelis suktinukų rinkinys kompanijai</p>
 
-<div class="card-bottom">
-<span class="price">24,90 €</span>
-<button class="add" onclick="addToCart('Niam Niam rinkinys', 24.90)">
-+ Į krepšelį
+<p>Įvairių sushi rinkinys dviem.</p>
+
+<div class="price">24.90 €</div>
+
+<button class="add" onclick="addToCart('Niam Niam rinkinys',24.90)">
+Į krepšelį
 </button>
+
 </div>
+
 </div>
+
 
 <div class="card">
-<div class="food">🍤</div>
+
+<img src="https://images.unsplash.com/photo-1617196034183-421b4917c92d?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
 <h3>Tempura</h3>
-<p>Traškūs suktinukai su krevetėmis</p>
 
-<div class="card-bottom">
-<span class="price">9,50 €</span>
-<button class="add" onclick="addToCart('Tempura', 9.50)">
-+ Į krepšelį
+<p>Traškus tempura suktinukas su padažu.</p>
+
+<div class="price">9.50 €</div>
+
+<button class="add" onclick="addToCart('Tempura',9.50)">
+Į krepšelį
 </button>
+
 </div>
+
 </div>
+
 
 <div class="card">
-<div class="food">🥑</div>
+
+<img src="https://images.unsplash.com/photo-1607301406259-dfb186e15de8?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
 <h3>Veganiškas suktinukas</h3>
-<p>Avokadas, agurkas ir šviežios daržovės</p>
 
-<div class="card-bottom">
-<span class="price">7,50 €</span>
-<button class="add" onclick="addToCart('Veganiškas suktinukas', 7.50)">
-+ Į krepšelį
+<p>Avokadas, agurkas ir šviežios daržovės.</p>
+
+<div class="price">7.50 €</div>
+
+<button class="add" onclick="addToCart('Veganiškas suktinukas',7.50)">
+Į krepšelį
 </button>
+
 </div>
+
 </div>
+
 
 <div class="card">
-<div class="food">🍣</div>
+
+<img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
 <h3>Didelis rinkinys</h3>
-<p>Puikus pasirinkimas didelei kompanijai</p>
 
-<div class="card-bottom">
-<span class="price">29,90 €</span>
-<button class="add" onclick="addToCart('Didelis rinkinys', 29.90)">
-+ Į krepšelį
-</button>
-</div>
-</div>
+<p>Didelis sushi rinkinys draugams ir šeimai.</p>
 
-</div>
-</section>
+<div class="price">29.90 €</div>
 
-<section class="section" id="about">
-
-<h2 class="section-title">Kodėl Niam Niam?</h2>
-
-<div class="info-grid">
-
-<div class="info">
-<div class="info-icon">🐟</div>
-<h3>Švieži produktai</h3>
-<p>Maistą ruošiame prieš pat užsakymą.</p>
-</div>
-
-<div class="info">
-<div class="info-icon">⚡</div>
-<h3>Greitas pristatymas</h3>
-<p>Stengiamės pristatyti užsakymą kuo greičiau.</p>
-</div>
-
-<div class="info">
-<div class="info-icon">❤️</div>
-<h3>Su meile</h3>
-<p>Kiekvieną užsakymą ruošiame kruopščiai ir atsakingai.</p>
-</div>
-
-</div>
-</section>
-
-<section class="section" id="reviews">
-
-<div class="review-box">
-
-<div class="rating">★★★★★</div>
-
-<div class="review-number" id="reviewCount">630</div>
-
-<p>
-patenkintų klientų paliko savo atsiliepimus
-</p>
-
-<br>
-
-<button class="button" onclick="openReview()">
-Palikti atsiliepimą
+<button class="add" onclick="addToCart('Didelis rinkinys',29.90)">
+Į krepšelį
 </button>
 
 </div>
 
-</section>
-
-<section class="section contact" id="contacts">
-
-<h2 class="section-title">Kontaktai</h2>
-
-<div class="contact-grid">
-
-<div class="contact-card">
-
-<h3>📍 Niam Niam Sushi</h3>
-
-<p>Vilnius, Lietuva</p>
-
-<p>📞 +37066863366</p>
-
-<a class="button" href="tel:+37066863366">
-Skambinti
-</a>
+</div>
 
 </div>
 
-<div class="contact-card">
+</section>
 
-<h3>Susisiekite su mumis</h3>
+
+<section id="about">
+
+<div class="section-title">
+<h2>Apie mus</h2>
+</div>
+
+<div class="about">
 
 <p>
-Turite klausimų? Parašykite mums.
+Niam Niam Sushi – tai šviežias, skanus ir gražiai paruoštas sushi.
+Mūsų tikslas – kad kiekvienas užsakymas būtų šviežias,
+skanus ir suteiktų gerą nuotaiką. 🍣
 </p>
 
-<div class="socials">
-
-<a class="social" href="https://wa.me/37066863366">
-WhatsApp
-</a>
-
-<a class="social" href="#">
-Telegram
-</a>
-
 </div>
+
+</section>
+
+
+<section id="contacts">
+
+<div class="section-title">
+<h2>Kontaktai</h2>
+<p>Susisiekite su mumis</p>
+</div>
+
+<div class="contacts">
+
+<div class="contact-buttons">
+
+<a href="tel:+37066863366">
+📞 Skambinti
+</a>
+
+<a href="https://wa.me/37066863366">
+💬 WhatsApp
+</a>
+
+<a href="https://t.me/">
+✈️ Telegram
+</a>
 
 </div>
 
 </div>
 
 </section>
+
 
 <footer>
-🍣 Niam Niam Sushi © 2026
+© 2026 Niam Niam Sushi
 </footer>
+
+
+<!-- CART -->
 
 <div class="modal" id="cartModal">
 
-<div class="modal-content">
+<div class="modal-box">
 
 <div class="modal-header">
 
-<h2>🛒 Jūsų krepšelis</h2>
+<h2>🛒 Krepšelis</h2>
 
 <button class="close" onclick="closeCart()">×</button>
 
@@ -685,11 +674,14 @@ Telegram
 <div id="cartItems"></div>
 
 <div class="total">
+
 <span>Viso:</span>
-<span id="cartTotal">0,00 €</span>
+
+<span id="cartTotal">0.00 €</span>
+
 </div>
 
-<button class="button" onclick="openOrder()">
+<button class="primary" onclick="openOrder()">
 Užsakyti
 </button>
 
@@ -697,13 +689,16 @@ Užsakyti
 
 </div>
 
+
+<!-- ORDER -->
+
 <div class="modal" id="orderModal">
 
-<div class="modal-content">
+<div class="modal-box">
 
 <div class="modal-header">
 
-<h2>📦 Užsakymas</h2>
+<h2>🍣 Užsakymas</h2>
 
 <button class="close" onclick="closeOrder()">×</button>
 
@@ -711,39 +706,35 @@ Užsakyti
 
 <form onsubmit="submitOrder(event)">
 
-<input
-type="text"
-id="customerName"
-placeholder="Jūsų vardas"
-required
->
+<label>Vardas</label>
+<input id="name" required placeholder="Jūsų vardas">
 
-<input
-type="tel"
-id="customerPhone"
-placeholder="Telefono numeris"
-required
->
+<label>Telefono numeris</label>
+<input id="phone" required placeholder="+370...">
 
-<input
-type="text"
-id="customerAddress"
-placeholder="Pristatymo adresas"
-required
->
+<label>Adresas</label>
+<input id="address" required placeholder="Pristatymo adresas">
+
+<label>Užsakymo būdas</label>
 
 <select id="delivery">
-<option>Pristatymas</option>
-<option>Atsiėmimas vietoje</option>
+
+<option value="delivery">
+Pristatymas
+</option>
+
+<option value="pickup">
+Atsižvelgsiu / atsiimsiu pats
+</option>
+
 </select>
 
-<textarea
-id="customerComment"
-placeholder="Komentaras užsakymui"
-></textarea>
+<label>Pastaba</label>
 
-<button class="button" type="submit">
-Pateikti užsakymą
+<textarea id="comment" placeholder="Pvz. be imbiero"></textarea>
+
+<button class="primary" type="submit">
+Patvirtinti užsakymą
 </button>
 
 </form>
@@ -752,111 +743,71 @@ Pateikti užsakymą
 
 </div>
 
-<div class="modal" id="reviewModal">
-
-<div class="modal-content">
-
-<div class="modal-header">
-
-<h2>⭐ Atsiliepimas</h2>
-
-<button class="close" onclick="closeReview()">×</button>
-
-</div>
-
-<form onsubmit="submitReview(event)">
-
-<input
-type="text"
-id="reviewName"
-placeholder="Jūsų vardas"
-required
->
-
-<select id="reviewRating">
-<option value="5">★★★★★</option>
-<option value="4">★★★★☆</option>
-<option value="3">★★★☆☆</option>
-<option value="2">★★☆☆☆</option>
-<option value="1">★☆☆☆☆</option>
-</select>
-
-<textarea
-id="reviewText"
-placeholder="Parašykite savo atsiliepimą..."
-required
-></textarea>
-
-<button class="button" type="submit">
-Pateikti atsiliepimą
-</button>
-
-</form>
-
-</div>
-
-</div>
 
 <script>
 
 let cart = [];
 
-function addToCart(name, price) {
+
+function addToCart(name, price){
 
 const existing = cart.find(item => item.name === name);
 
-if (existing) {
+if(existing){
+
 existing.quantity++;
-} else {
+
+}else{
+
 cart.push({
-name: name,
-price: price,
-quantity: 1
+name:name,
+price:price,
+quantity:1
 });
+
 }
 
 updateCart();
 
-alert(name + " pridėta į krepšelį!");
 }
 
-function updateCart() {
 
-const cartCount = cart.reduce(
-(sum, item) => sum + item.quantity,
+function updateCart(){
+
+const count = cart.reduce(
+(sum,item) => sum + item.quantity,
 0
 );
 
-document.getElementById("cartCount").textContent = cartCount;
+document.getElementById("cartCount").textContent = count;
 
 const container = document.getElementById("cartItems");
 
-if (cart.length === 0) {
+if(cart.length === 0){
 
 container.innerHTML =
-'<div class="empty">Krepšelis tuščias.</div>';
+'<div class="empty">Krepšelis tuščias 🍣</div>';
 
-} else {
+}else{
 
-container.innerHTML = cart.map((item, index) => `
+container.innerHTML = cart.map((item,index)=>`
 
 <div class="cart-item">
 
 <div>
-<strong>${item.name}</strong>
-<br>
-${item.price.toFixed(2).replace(".", ",")} €
+<strong>${item.name}</strong><br>
+${item.price.toFixed(2)} €
 </div>
 
 <div class="quantity">
 
-<button onclick="changeQuantity(${index}, -1)">
+<button onclick="changeQuantity(${index},-1)">
 −
 </button>
 
 <span>${item.quantity}</span>
 
-<button onclick="changeQuantity(${index}, 1)">
+<button onclick="changeQuantity(${index},1)">
 +
 </button>
 
@@ -865,90 +816,122 @@ ${item.price.toFixed(2).replace(".", ",")} €
 </div>
 
 `).join("");
+
 }
 
 const total = cart.reduce(
-(sum, item) => sum + item.price * item.quantity,
+(sum,item) => sum + item.price * item.quantity,
 0
 );
 
 document.getElementById("cartTotal").textContent =
-total.toFixed(2).replace(".", ",") + " €";
+total.toFixed(2) + " €";
+
 }
 
-function changeQuantity(index, change) {
+
+function changeQuantity(index,change){
 
 cart[index].quantity += change;
 
-if (cart[index].quantity <= 0) {
-cart.splice(index, 1);
+if(cart[index].quantity <= 0){
+cart.splice(index,1);
 }
 
 updateCart();
+
 }
 
-function openCart() {
-document.getElementById("cartModal").classList.add("active");
+
+function openCart(){
+
+updateCart();
+
+document.getElementById("cartModal").style.display = "flex";
+
 }
 
-function closeCart() {
-document.getElementById("cartModal").classList.remove("active");
+
+function closeCart(){
+
+document.getElementById("cartModal").style.display = "none";
+
 }
 
-function openOrder() {
 
-if (cart.length === 0) {
-alert("Jūsų krepšelis tuščias.");
+function openOrder(){
+
+if(cart.length === 0){
+
+alert("Krepšelis tuščias.");
+
 return;
+
 }
 
 closeCart();
 
-document.getElementById("orderModal").classList.add("active");
+document.getElementById("orderModal").style.display = "flex";
+
 }
 
-function closeOrder() {
-document.getElementById("orderModal").classList.remove("active");
+
+function closeOrder(){
+
+document.getElementById("orderModal").style.display = "none";
+
 }
 
-function submitOrder(event) {
+
+function submitOrder(event){
 
 event.preventDefault();
 
-alert(
-"Ačiū! Jūsų užsakymas priimtas. " +
-"Su jumis netrukus susisieksime."
+const name =
+document.getElementById("name").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const address =
+document.getElementById("address").value;
+
+const delivery =
+document.getElementById("delivery").value;
+
+const comment =
+document.getElementById("comment").value;
+
+const total = cart.reduce(
+(sum,item) => sum + item.price * item.quantity,
+0
 );
+
+alert(
+"Ačiū, " + name +
+"! Užsakymas priimtas.\n\n" +
+"Suma: " + total.toFixed(2) +
+" €\n\n" +
+"Kol kas tai demonstracinė užsakymo forma. " +
+"Kitame žingsnyje prijungsime tikrą duomenų bazę."
+);
+
+console.log({
+name,
+phone,
+address,
+delivery,
+comment,
+items:cart,
+total
+});
 
 cart = [];
 
 updateCart();
 
 closeOrder();
-}
 
-function openReview() {
-document.getElementById("reviewModal").classList.add("active");
-}
-
-function closeReview() {
-document.getElementById("reviewModal").classList.remove("active");
-}
-
-function submitReview(event) {
-
-event.preventDefault();
-
-let count =
-Number(document.getElementById("reviewCount").textContent);
-
-count++;
-
-document.getElementById("reviewCount").textContent = count;
-
-alert("Ačiū už jūsų atsiliepimą!");
-
-closeReview();
 }
 
 updateCart();
