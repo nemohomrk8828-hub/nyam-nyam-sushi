@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyam-Nyam-Sushi</title>
+
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: Arial, sans-serif;
+background: #fff8f1;
+color: #171717;
+}
+
+header {
+background: #111;
+color: white;
+padding: 20px 6%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-size: 24px;
+font-weight: bold;
+}
+
+.logo span {
+color: #e63946;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+margin-left: 20px;
+}
+
+.hero {
+min-height: 500px;
+padding: 80px 8%;
+display: flex;
+align-items: center;
+background:
+linear-gradient(90deg, #fff8f1 50%, #f4c7b8);
+}
+
+.hero-content {
+max-width: 650px;
+}
+
+.hero h1 {
+font-size: 64px;
+line-height: 1;
+margin-bottom: 25px;
+}
+
+.hero h1 span {
+color: #e63946;
+}
+
+.hero p {
+font-size: 19px;
+color: #666;
+line-height: 1.6;
+margin-bottom: 30px;
+}
+
+.button {
+display: inline-block;
+background: #e63946;
+color: white;
+padding: 15px 25px;
+border-radius: 10px;
+text-decoration: none;
+font-weight: bold;
+border: none;
+cursor: pointer;
+}
+
+.section {
+padding: 70px 8%;
+}
+
+.section h2 {
+font-size: 40px;
+margin-bottom: 30px;
+}
+
+.menu {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.card {
+background: white;
+border-radius: 18px;
+padding: 20px;
+box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.food {
+height: 180px;
+background: #ffe4dc;
+border-radius: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 90px;
+margin-bottom: 15px;
+}
+
+.card h3 {
+margin-bottom: 8px;
+}
+
+.card p {
+color: #777;
+margin-bottom: 15px;
+}
+
+.price {
+font-size: 20px;
+font-weight: bold;
+}
+
+footer {
+background: #111;
+color: white;
+padding: 30px 8%;
+text-align: center;
+}
+
+@media(max-width: 700px) {
+nav {
+display: none;
+}
+
+.hero h1 {
+font-size: 45px;
+}
+
+.menu {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🍣 Nyam-Nyam <span>Sushi</span></div>
+
+<nav>
+<a href="#menu">Meniu</a>
+<a href="#about">Apie mus</a>
+<a href="#contacts">Kontaktai</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>
+Sushiai, kuriuos
+<span>noresi pakartoti.</span>
+</h1>
+
+<p>
+Švieži sušių suktinukai, rinkiniai ir japoniški patiekalai.
+Užsisakykite mėgstamus sušius greitai ir patogiai.
+</p>
+
+<a href="#menu" class="button">Peržiūrėti meniu</a>
+</div>
+</section>
+
+<section class="section" id="menu">
+<h2>Mūsų meniu</h2>
+
+<div class="menu">
+
+<div class="card">
+<div class="food">🍣</div>
+<h3>Filadelfija</h3>
+<p>Lašiša, kreminis sūris, agurkas</p>
+<span class="price">€8.90</span>
+</div>
+
+<div class="card">
+<div class="food">🍣</div>
+<h3>Kalifornija</h3>
+<p>Krabas, avokadas, agurkas, tobiko</p>
+<span class="price">€7.90</span>
+</div>
+
+<div class="card">
+<div class="food">🍱</div>
+<h3>Nyam rinkinys</h3>
+<p>Didelis sušių rinkinys grupei</p>
+<span class="price">€24.90</span>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="about">
+<h2>Kodėl Nyam-Nyam?</h2>
+
+<p>
+Šviežius sušius ruošiame gavę užsakymą,
+kruopščiai supakuojame ir pristatome laiku.
+</p>
+</section>
+
+<section class="section" id="contacts">
+<h2>Kontaktai</h2>
+
+<p>📍 Vilnius, Lithuania</p>
+<br>
+<p>📞 +37066863366</p>
+<br>
+<a class="button" href="tel:+37066863366">
+Paskambinti
+</a>
+</section>
+
+<footer>
+🍣 Nyam-Nyam Sushi © 2026
+</footer>
+
+</body>
+</html>
